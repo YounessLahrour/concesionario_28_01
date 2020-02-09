@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Coche;
 class Marca extends Model
 {
     protected $fillable=['nombre', 'logo', 'pais'];
@@ -11,5 +11,16 @@ class Marca extends Model
     //tendremos muchos coches, en marccas pondremos
     public function coches(){
         return $this->hasMany(Coche::class);
+    
+    }
+
+    public function scopePais($query, $v){
+        if(!isset($v)){
+            return $query->where('pais', 'like','%');
+        }
+        if($v=='%'){
+            return $query->where('pais','like', $v);
+        }
+        return $query->where('pais', $v);
     }
 }
