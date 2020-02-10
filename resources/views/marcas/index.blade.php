@@ -62,4 +62,5 @@
             </tbody>
           </table>
           {{$marcas->appends(Request::except('page'))->links()}}
+          <a href="{{route('index')}}" class="btn btn-info align:left"><- Atras</a>
     @endsection

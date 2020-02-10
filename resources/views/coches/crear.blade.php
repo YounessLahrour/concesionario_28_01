@@ -16,7 +16,6 @@
 @endforeach  
 </ul>  
 </div>    
- 
 @endif
 <form name="c" method="POST" action="{{route('coches.store')}}" enctype="multipart/form-data">
   @csrf
